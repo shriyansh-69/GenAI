@@ -24,3 +24,29 @@ Rules:
 - Keep responses short, human, and helpful
 """
 
+# Interface Setup
+
+st.set_page_config(page_title="Emotion-Aware Chatbot", layout="centered")
+st.title("🤖 Emotion-Aware Chatbot")
+
+if "message" not in st.session_state:
+    st.session_state.messages = [
+        {"role": "system", "content": SYSTEM_PROMPT },
+        {"role": "assistant", "content": "Welcome! 😊 How can I assist you today?"}
+    ]
+
+for msg in st.session_state.message[1:]:
+    with st.chat_message(msg["Role"]):
+        st.write(msg["content"])
+
+user_input = st.chat_input("Type You Message ... ")
+
+if user_input:
+    with st.chat_message("user"):
+        st.write(user_input)
+
+    st.session_state.message.append(
+        {"role":"user","content" : user_input}
+    )
+
+    
