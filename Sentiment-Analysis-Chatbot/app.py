@@ -46,10 +46,11 @@ st.title("🤖 Emotion-Aware Chatbot")
 
 if "messages" not in st.session_state:
     st.session_state.messages = [
-        {"role": "assiistant", "content" : "Welcome! How Can I assist you today?" }
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "assistant", "content": "Welcome! 😊 How can I assist you today?"}
     ]
 
-for msg in st.session_state.messages:
+for msg in st.session_state.messages[1:]:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
 
@@ -57,5 +58,25 @@ for msg in st.session_state.messages:
 
 user_input = st.chat_input("Type Your Message.... ")
 
+# Show And Save User Message
 
+if user_input:
+    user_input = user_input.strip()
+
+    with st.chat_input("user"):
+        st.write(user_input)
+
+    st.session_state.messages.append(
+        {"role":"user","content":user_input}
+    )
+
+    
+
+
+
+
+
+
+
+    
 
