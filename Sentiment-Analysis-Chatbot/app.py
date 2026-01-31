@@ -37,9 +37,21 @@ Response rules:
 - Never use emotional or dramatic language  
 """
 
+
 # Streamlit Interface
 
 st.set_page_config(page_title="Sentiment-Analysis Chatbot",layout="centered")
 st.title("🤖 Emotion-Aware Chatbot")
+
+
+if "messages" not in st.session_state:
+    st.session_state.messages = [
+        {"role": "assiistant", "content" : "Welcome! How Can I assist you today?" }
+    ]
+
+for msg in st.session_state.messages:
+    with st.chat_message(msg["role"]):
+        st.write(msg["content"])
+
 
 
