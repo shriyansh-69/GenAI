@@ -37,4 +37,9 @@ Response rules:
 - Never use emotional or dramatic language  
 """
 
+# Streamlit Interface
+
+st.set_page_config(page_title="Sentiment-Analysis Chatbot",layout="centered")
+st.title("🤖 Emotion-Aware Chatbot")
+
 
