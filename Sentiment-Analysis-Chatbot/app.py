@@ -53,5 +53,9 @@ for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
 
+# Creating The User Input 
+
+user_input = st.chat_input("Type Your Message.... ")
+
 
 
