@@ -8,7 +8,7 @@ from groq import Groq
 load_dotenv()
 
 # API Key
-client = Groq(os.environ("GROQ_API_KEY"))
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 # System Prompt
 SYSTEM_PROMPT = """
@@ -40,8 +40,8 @@ Response rules:
 
 # Streamlit Interface
 
-st.set_page_config(page_title="Sentiment-Analysis Chatbot",layout="centered")
-st.title("🤖 Emotion-Aware Chatbot")
+st.set_page_config(page_title=" 🤖 Sentiment-Analysis Chatbot",layout="centered")
+st.title("🧬 Emotion-Aware Chatbot")
 
 
 if "messages" not in st.session_state:
@@ -61,14 +61,22 @@ user_input = st.chat_input("Type Your Message.... ")
 # Show And Save User Message
 
 if user_input:
-    user_input = user_input.strip()
-
-    with st.chat_input("user"):
+    with st.chat_message("user"):
         st.write(user_input)
 
     st.session_state.messages.append(
         {"role":"user","content":user_input}
     )
+
+    if user_input.lower() in ["who is your creator", "who created you", "who made you"]:
+        with st.chat_message("assistant"):
+            st.write("I was created by Shriyansh. a Student Who Have Expertise's  In AI/ML And Cloud." \
+            " API Powered By Groq")
+
+        st.session_state.messages.append(
+            {"role": "assistant", "content": "I was created by Shriyansh."}
+        )
+        st.stop()
 
     # Creating The Response From The Model
     response = client.chat.completions.create(
@@ -79,6 +87,32 @@ if user_input:
 
     # Whole API Response 
     raw_output = response.choices[0].message.content
+
+    lines = raw_output.split("\n", 1)
+
+    sentiment_line = lines[0].lower()
+    sentiment = sentiment_line.replace("sentiment:", "").strip().capitalize() 
+    
+
+    if len(lines) > 1:
+        bot_reply = lines[1].replace("Response: ","").strip()
+    else:
+        bot_reply = "Could You Please Tell Me More"
+
+    # Sentiment Badge 
+    if sentiment == "Positive":
+        st.success("Sentiment: Positive 😊")
+    elif sentiment == "Negative":
+        st.error("Sentiment: Negative 😟")
+    else:
+        st.info("Sentiment: Neutral 😐")
+
+    with st.chat_message("assistant"):
+        st.write(bot_reply)
+    
+    st.session_state.messages.append(
+        {"role" : "assistant", "content" : bot_reply}
+    )
 
 
 
