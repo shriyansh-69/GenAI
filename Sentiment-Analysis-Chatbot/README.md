@@ -42,10 +42,10 @@ The chatbot classifies sentiment and generates short, professional replies to im
 ## 📂 Project Structure
 
 Sentiment-Analysis-Chatbot/
-│
-├── app.py # Main Streamlit chatbot application
-├── requirements.txt # Python dependencies
-├── README.md # Project documentation
-├── .env # API key configuration (not committed)
-├── .gitignore # Git ignore rules
-└── venv/ # Virtual environment
+├── app.py
+├── requirements.txt
+├── README.md
+├── .env
+├── .gitignore
+└── venv/
+
