@@ -70,6 +70,20 @@ if user_input:
         {"role":"user","content":user_input}
     )
 
+    # Creating The Response From The Model
+    response = client.chat.completions.create(
+        model="llama-3.1-8b-instant",
+        messages=st.session_state.messages
+    )
+
+
+
+
+
+
+
+
+
     
 
 
