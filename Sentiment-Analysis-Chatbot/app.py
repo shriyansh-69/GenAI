@@ -77,6 +77,19 @@ if user_input:
     )
 
 
+    # Whole API Response 
+    raw_output = response.choices[0].message.content
+
+
+
+
+
+
+
+
+
+
+
 
 
 
