@@ -1,14 +1,8 @@
-tensorflow
-numpy
-nltk
-scikit-learn
-pickle-mixin
 
 langchain
 langchain-community
 langchain-groq
 
-faiss-cpu
-sentence-transformers
+
 
 python-dotenv
