@@ -4,6 +4,15 @@ An Emotion-Aware Chatbot that detects user sentiment (Positive, Negative, or Neu
 
 ---
 
+
+## 🌐 Live Demo
+
+The application is deployed on **Streamlit Cloud** and can be accessed at:
+
+🔗 https://sentimentanalysisb.streamlit.app/
+
+---
+
 ## 📌 Project Overview
 
 This project integrates sentiment analysis into a chatbot to understand customer emotions and adapt responses accordingly.  
