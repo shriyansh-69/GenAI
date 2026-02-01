@@ -20,6 +20,13 @@ The chatbot classifies sentiment and generates short, professional replies to im
 
 ---
 
+## Approach
+
+I Am Using Groq API To Use It's Pretrained Model For Analyzing The Sentiment Analysis Of The Text And Reply Based On Sentiment 
+Detect By The Model And Apology on Negative Sentiment And appreciate Based On Positive Sentiment And Neutral For The Neutral Sentiment 
+
+---
+
 ## 🎯 Objectives
 
 - Detect user sentiment accurately  
