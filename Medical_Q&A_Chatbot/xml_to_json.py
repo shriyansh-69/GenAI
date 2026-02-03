@@ -4,7 +4,7 @@ import os
 
 
 xml_root = "data/xml/MedQuAD"
-output_root = "data/medquad.json"
+output_json = "data/medquad.json"
 
 all_qa = []
 
@@ -40,7 +40,16 @@ for root_dir, _, files in os.walk(xml_root):
             })
 
         except Exception as e:
-            print(f"Skipped {file_path} بسبب error: {e}")
+            print(f"Skipped {file_path}  error: {e}")
+
+with open(output_json,"w", encoding="utf-8") as f:
+    json.dump(all_qa, f, indent=2, ensure_ascii=False)
+
+print("====================================")
+print(f"Total Q&A pair's Extracted: {len(all_qa)}")
+print(f"✅ Saved to: {output_json}")
+print("====================================")
+
 
 
 
