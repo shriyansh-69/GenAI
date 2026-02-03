@@ -36,10 +36,11 @@ for root_dir, _, files in os.walk(xml_root):
 
             all_qa.append({
                 "question" : question,
-                "answer" : answer 
+                "answer" : answer
             })
 
         except Exception as e:
+            pass
             
 
 
