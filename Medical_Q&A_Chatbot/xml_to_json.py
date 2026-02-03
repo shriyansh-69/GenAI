@@ -13,5 +13,9 @@ for root_dir, _, files in os.walk(xml_root):
         if not files.endswith(".xml"):
             continue
 
+        file_path = os.path.join(root_dir,files)
+
+        
+
 
         
