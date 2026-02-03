@@ -10,10 +10,10 @@ all_qa = []
 
 for root_dir, _, files in os.walk(xml_root):
     for file  in files:
-        if not files.endswith(".xml"):
+        if not file.endswith(".xml"):
             continue
 
-        file_path = os.path.join(root_dir,files)
+        file_path = os.path.join(root_dir, file)
 
         try :
             tree = et.parse(file_path)
@@ -31,8 +31,9 @@ for root_dir, _, files in os.walk(xml_root):
                 continue
 
 
-            question = q.text.strip()
-            answer = a.text.strip()
+            question = q.text.strip() if q.text else None
+            answer = a.text.strip() if a.text else None
+
 
             all_qa.append({
                 "question" : question,
