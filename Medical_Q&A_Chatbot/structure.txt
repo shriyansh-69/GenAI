@@ -1,0 +1,34 @@
+medical_chatbot/
+│
+├── app.py                  # Streamlit UI (chatbot interface)
+│
+├── xml_to_json.py          # One-time XML → JSON converter
+│
+├── preprocess.py           # NLP preprocessing (tokenize, lemmatize)
+│
+├── retriever.py            # TF-IDF + FAISS retrieval logic
+│
+├── requirements.txt        # Dependencies
+│
+├── data/
+│   │
+│   ├── xml/                # RAW dataset (used once)
+│   │   └── MedQuAD-master/ # All MedQuAD folders
+│   │       ├── 1_CancerGov_QA/
+│   │       ├── 2_GARD_QA/
+│   │       ├── 3_GHR_QA/
+│   │       ├── 4_MPlus_Health_Topics_QA/
+│   │       ├── 5_NIDDK_QA/
+│   │       ├── 6_NINDS_QA/
+│   │       ├── 7_SeniorHealth_QA/
+│   │       ├── 8_NHLBI_QA_XML/
+│   │       ├── 9_CDC_QA/
+│   │       ├── 10_MPlus_ADAM_QA/
+│   │       ├── 11_MPlusDrugs_QA/
+│   │       └── 12_MPlusHerbsSupplements_QA/
+│   │
+│   └── medquad.json        # CLEAN knowledge base (used by chatbot)
+│
+├── venv/                   # Virtual environment (auto-generated)
+│
+└── README.md               # Project explanation (later)
