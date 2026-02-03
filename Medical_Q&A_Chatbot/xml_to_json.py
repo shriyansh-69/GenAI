@@ -40,7 +40,10 @@ for root_dir, _, files in os.walk(xml_root):
             })
 
         except Exception as e:
-            pass
+            print(f"Skipped {file_path} بسبب error: {e}")
+
+
+
             
 
 
