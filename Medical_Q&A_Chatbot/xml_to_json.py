@@ -51,12 +51,10 @@ print(f"Total Q&A pair's Extracted: {len(all_qa)}")
 print(f"✅ Saved to: {output_json}")
 print("====================================")
 
+# Description This Code  Is For Converting The XML Content  Into Json 
+# For Our RAG
 
-
-
-            
-
-
+    
 
 
 
