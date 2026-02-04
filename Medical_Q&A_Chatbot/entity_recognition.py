@@ -37,4 +37,34 @@ TREATMENTS = [
 ]
 
 
+def extract_entities(text: str) -> dict:
+    """
+    Extract Basic medical entities from input text using keyword matching.
+    Returns a dictionary with diseases, symptoms, Treatments.
+    """
+
+    text = text.lower()
+
+    entities = {
+        "Diseases" : [],
+        "Symptoms" : [],
+        "Treatments" : []
+    }
+
+    for disease in DISEASES:
+        if disease in text:
+            entities["Diseases"].append(disease)
+
+    for symptom in SYMPTOMS:
+        if symptom in text:
+            entities["Symptoms"].append(symptom)
+
+    for treatment in TREATMENTS:
+        if treatment in text:
+            entities["Treatments"].append(treatment)
+
+
+    return entities
+
+
 
