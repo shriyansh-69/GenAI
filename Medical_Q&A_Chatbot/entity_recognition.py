@@ -13,3 +13,16 @@ DISEASES = [
     "krabbe disease"
 ]
 
+SYMPTOMS = [
+    "fever",
+    "fatigue",
+    "bleeding",
+    "pain",
+    "cough",
+    "weight loss",
+    "night sweats",
+    "headache",
+    "nausea"
+]
+
+
