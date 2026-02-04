@@ -1,2 +1,0 @@
-from entity_recognition import extract_entities
-
