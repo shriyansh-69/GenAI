@@ -25,4 +25,16 @@ SYMPTOMS = [
     "nausea"
 ]
 
+TREATMENTS = [
+    "chemotherapy",
+    "radiation",
+    "radiation therapy",
+    "surgery",
+    "stem cell transplant",
+    "medication",
+    "antibiotics",
+    "therapy"
+]
+
+
 
