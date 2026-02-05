@@ -27,18 +27,20 @@ for root_dir, _, files in os.walk(xml_root):
                 q = qa.find("Question")
                 a = qa.find("Answer")
 
-            if q is None or a is None:
-                continue
+                if q is None or a is None:
+                    continue
 
 
-            question = q.text.strip() if q.text else None
-            answer = a.text.strip() if a.text else None
+            question = "".join(q.itertext()).strip()
+            answer = "".join(a.itertext()).strip()
 
 
-            all_qa.append({
-                "question" : question,
-                "answer" : answer
-            })
+
+            if question and answer:
+                all_qa.append({
+                    "question" : question,
+                    "answer" : answer
+                })
 
         except Exception as e:
             print(f"Skipped {file_path}  error: {e}")
