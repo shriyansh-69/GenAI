@@ -16,7 +16,11 @@ with open("data\medquad.json","r",encoding="utf-8") as f:
 questions = [preprocess(item["question"]) for item in data]
 
 # Initialize TF-IDF Vectorizer
-vectorizer = TfidfVectorizer(max_features=5000)
+vectorizer = TfidfVectorizer(
+    max_features=5000,
+    ngram_range=(1, 2)
+)
+
 questions_vectorizer = vectorizer.fit_transform(questions)
 
 
