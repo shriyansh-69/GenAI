@@ -9,4 +9,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 from preprocess import preprocess
 
 
+with open("data\medquad.json","r",encoding="utf-8") as f:
+    data = json.load(f)
 
+
+
+    
