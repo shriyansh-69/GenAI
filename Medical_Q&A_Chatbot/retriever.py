@@ -30,10 +30,10 @@ def retrieve_answer(query: str) -> str:
     query_processed = preprocess(query)
 
     # Vectorize Query 
-    questions_vectorizer = vectorizer.transform([query_processed])
+    query_vector = vectorizer.transform([query_processed])
 
     # Similarity  Measurement To Know The Similar The Vectories Are 
-    similarties = cosine_similarity(questions_vectorizer, query_processed)[0]
+    similarties = cosine_similarity(query_vector, questions_vectorizer)[0]
 
     # Get Best Matching Answer 
     best_answer = similarties.argmax()
