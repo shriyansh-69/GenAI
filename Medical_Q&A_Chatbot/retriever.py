@@ -20,6 +20,28 @@ vectorizer = TfidfVectorizer(max_features=5000)
 questions_vectorizer = vectorizer.fit_transform(questions)
 
 
+def retrieve_answer(query: str) -> str:
+    """
+    Retrieve the most Revelant Answer From Our Dataset
+    using TF-IDF and cosine similarity.
+    """
+
+    # Preprocess User Query To Cut The Word To It's Base Form
+    query_processed = preprocess(query)
+
+    # Vectorize Query 
+    questions_vectorizer = vectorizer.transform([query_processed])
+
+    # Similarity  Measurement To Know The Similar The Vectories Are 
+    similarties = cosine_similarity(questions_vectorizer, query_processed)[0]
+
+    # Get Best Matching Answer 
+    best_answer = similarties.argmax()
+
+    return data[best_answer]["answer"]
+
+    
+
 
 
 
