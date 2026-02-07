@@ -1,1 +1,4 @@
 structure.txt
+__pycache__/
+*.pyc
+venv/
