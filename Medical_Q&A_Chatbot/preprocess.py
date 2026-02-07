@@ -1,11 +1,12 @@
 # This File Is Created For Process The Word In Dataset 
 
-
 import re
 import nltk
 from nltk.stem import WordNetLemmatizer
 
+
 lemmatizer = WordNetLemmatizer()
+
 
 def preprocess(text: str) -> str:
     text = text.lower()
