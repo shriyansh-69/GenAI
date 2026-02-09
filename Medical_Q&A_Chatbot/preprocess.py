@@ -1,4 +1,4 @@
-# This File Is Created For Process The Word In Dataset 
+# This File Is Created For Preprocess The Word In Dataset 
 
 import re
 import nltk
