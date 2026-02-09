@@ -1,5 +1,6 @@
-structure.txt
-__pycache__/
-*.pyc
 venv/
+.env/
+__pycache__/
+.ipynb_checkpoints/
+
 
