@@ -12,7 +12,7 @@ from preprocess import preprocess
 Base_dir = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(Base_dir,"data","medquad.json")
 
-with open("data/medquad.json","r",encoding="utf-8") as f:
+with open(file_path, "r", encoding="utf-8") as f:
     data = json.load(f)
 
 # Preprocessing s All Question's
