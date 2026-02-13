@@ -17,3 +17,14 @@ Preprocess The Question Using NLP Techniques, And Retrieves
 The Most Relevant Answer Using TF-IDF Vectorization And Cosine Similarity.
 
 The System Follows a Simple Retrieval-Based QA Architecture.
+
+---
+
+## How It Works
+
+1. XML files are Converted into JSON Format
+2. Questions are preprocessed Using:
+   - Lowercasing
+   - Regex 
+
+## 🚫 This File Is in Progress
