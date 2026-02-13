@@ -3,12 +3,15 @@
 
 import json
 import numpy as np
+import os
 from sklearn.feature_extraction.text import TfidfVectorizer 
 from sklearn.metrics.pairwise import cosine_similarity
-
 from preprocess import preprocess
 
 # Loading the Dataset 
+Base_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(Base_dir,"data","medquad.json")
+
 with open("data/medquad.json","r",encoding="utf-8") as f:
     data = json.load(f)
 
