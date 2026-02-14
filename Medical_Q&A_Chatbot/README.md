@@ -37,7 +37,7 @@ The System Follows a Simple Retrieval-Based QA Architecture.
 
 ## Tech Stack
 
-- python 3:11
+- Python 3:11
 - streamlit 
 - NLTLK 
 - Scikit-learn
@@ -61,7 +61,6 @@ Medical_Q&A_Chatbot/
 ├── xml_to_json.py
 ├── requirements.txt
 └── README.md
-
 
 
 
