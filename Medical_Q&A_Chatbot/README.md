@@ -46,6 +46,22 @@ The System Follows a Simple Retrieval-Based QA Architecture.
 
 ---
 
+##  Project Structure
+
+Medical_Q&A_Chatbot/
+│
+├── data/
+│ └── medquad.json
+│
+├── information.ipynb
+├── interface.py
+├── retriever.py
+├── preprocess.py
+├── entity_recognition.py
+├── xml_to_json.py
+├── requirements.txt
+└── README.md
+
 
 
 
