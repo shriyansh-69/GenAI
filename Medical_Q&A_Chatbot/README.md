@@ -26,5 +26,15 @@ The System Follows a Simple Retrieval-Based QA Architecture.
 2. Questions are preprocessed Using:
    - Lowercasing
    - Regex 
+   - Tokenization
+   - Lemmatization(Wordnet)
+3. TF-IDF Vectorization is Applied.
+4. Cosine Similarity is Used to Find The Most Relevant  Question.
+5. The Corresponding Answer Is Returned To The User.
 
-## 🚫 This File Is in Progress
+
+---
+
+
+
+
