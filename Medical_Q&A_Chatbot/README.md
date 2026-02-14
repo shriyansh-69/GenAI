@@ -48,6 +48,8 @@ The System Follows a Simple Retrieval-Based QA Architecture.
 
 ##  Project Structure
 
+```
+
 Medical_Q&A_Chatbot/
 │
 ├── data/
@@ -61,6 +63,8 @@ Medical_Q&A_Chatbot/
 ├── xml_to_json.py
 ├── requirements.txt
 └── README.md
+
+```
 
 
 
