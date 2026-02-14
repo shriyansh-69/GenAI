@@ -35,6 +35,19 @@ The System Follows a Simple Retrieval-Based QA Architecture.
 
 ---
 
+## Tech Stack
+
+- python 3:11
+- streamlit 
+- NLTLK 
+- Scikit-learn
+- Numpy
+- Pandas
+
+---
+
+
+
 
 
 
