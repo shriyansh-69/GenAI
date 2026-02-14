@@ -13,7 +13,7 @@ The application is deployed on **Streamlit Cloud** and can be accessed at:
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 
 This project integrates sentiment analysis into a chatbot to understand customer emotions and adapt responses accordingly.  
 The chatbot classifies sentiment and generates short, professional replies to improve customer interaction and satisfaction.
@@ -27,7 +27,7 @@ Detect By The Model And Apology on Negative Sentiment And appreciate Based On Po
 
 ---
 
-## 🎯 Objectives
+##  Objectives
 
 - Detect user sentiment accurately  
 - Respond appropriately based on emotion  
@@ -35,7 +35,7 @@ Detect By The Model And Apology on Negative Sentiment And appreciate Based On Po
 
 ---
 
-## ✨ Features
+##  Features
 
 - Sentiment classification: Positive / Negative / Neutral  
 - Short, professional responses (1–2 sentences)  
@@ -46,7 +46,7 @@ Detect By The Model And Apology on Negative Sentiment And appreciate Based On Po
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 - Python  
 - Streamlit  
@@ -55,7 +55,8 @@ Detect By The Model And Apology on Negative Sentiment And appreciate Based On Po
 
 ---
 
-## 📂 Project Structure
+```
+##  Project Structure
 
 Sentiment-Analysis-Chatbot/
 ├── app.py
@@ -64,4 +65,5 @@ Sentiment-Analysis-Chatbot/
 ├── .env
 ├── .gitignore
 └── venv/
+```
 
