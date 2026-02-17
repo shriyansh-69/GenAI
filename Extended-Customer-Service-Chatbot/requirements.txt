@@ -1,0 +1,7 @@
+langchain==0.0.339
+python-dotenv==1.0.0
+streamlit==1.22.0
+tiktoken==0.4.0
+faiss-cpu>=1.9.0
+protobuf~=3.19.0
+sentence-transformers>=2.6.0
