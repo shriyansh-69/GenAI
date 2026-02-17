@@ -24,11 +24,20 @@ embeddings =  HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-MiniLM-L6-v2"
 )
 
-vectordb_file_path = "faiss_index"
+# Base Directory
+base_dir =  Path(__file__).resolve().parent.parent
+
+# Dataset Path(Relative Path)
+data_path = base_dir/ "dataset" / "et.csv"
+
+# FAISS Index Path
+vectordb_file_path = base_dir/"faiss_index"
+
+
 
 def create_vector_db():
     loader = CSVLoader(
-        file_path=r"C:\Users\shriyansh\Projects\numpy_PY\Elevance-Skill_NLP\Custom-Service-Chat-Bot\dataset\et.csv",
+        file_path=r"C:\Users\shriyansh\OneDrive\Desktop\GenAI-main\Extended-Customer-Service-Chatbot\dataset\et.csv",
         encoding="utf-8",
         csv_args={
             "delimiter": ",",
