@@ -37,7 +37,7 @@ vectordb_file_path = base_dir/"faiss_index"
 
 def create_vector_db():
     loader = CSVLoader(
-        file_path=r"C:\Users\shriyansh\OneDrive\Desktop\GenAI-main\Extended-Customer-Service-Chatbot\dataset\et.csv",
+        file_path=str(data_path),
         encoding="utf-8",
         csv_args={
             "delimiter": ",",
@@ -46,8 +46,17 @@ def create_vector_db():
     )
 
     documents = loader.load()
-    vectordb = FAISS.from_documents(documents, embeddings)
-    vectordb.save_local(vectordb_file_path)
+    if os.path.exists(vectordb_file_path):
+        vectordb = FAISS.load_local(
+            str(vectordb_file_path),
+            embeddings,
+            allow_dangerous_deserialization = True
+        )
+        vectordb.add_documents(documents)
+    else:
+        vectordb = FAISS.from_documents(documents, embeddings)
+    
+    vectordb.save_local(str(vectordb_file_path))
 
 
 def get_qa_chain():
