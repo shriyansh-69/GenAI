@@ -11,10 +11,12 @@ from pathlib import Path
 import hashlib
 import json
 
-
+# -----------------------------------------------------------  API-Key   --------------------------------------------------------------------
 load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
 
 
+
+# ----------------------------------------------------   Large-Language Model(LLM)   --------------------------------------------------------------------
 llm = ChatGroq(
     api_key=os.environ["GROQ_API_KEY"],
     model="llama-3.1-8b-instant",
@@ -37,8 +39,9 @@ vectordb_file_path = base_dir/"faiss_index"
 
 
 ## Hashing Function
+
 def generate_hash(text):
-    return None
+    return hashlib.sha256(text.encode()).hexdigest()
 
 
 
