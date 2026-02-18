@@ -41,12 +41,12 @@ vectordb_file_path = base_dir/"faiss_index"
 metadata_path = base_dir/ "metadata_store.json"
 
 
-## Hashing Function
+# Hashing Function
 def generate_hash(text):
     return hashlib.sha256(text.encode()).hexdigest()
 
 
-
+# Creating And Updating   VectorDB
 def create_vector_db():
     loader = CSVLoader(
         file_path=str(data_path),
@@ -58,6 +58,29 @@ def create_vector_db():
     )
 
     documents = loader.load()
+
+    # Load existing hashes 
+    if metadata_path.exists():
+        with open("metadata_path","r") as f:
+            stored_hashes = set(json.load(f))
+    else:
+        stored_hashes = set()
+
+    new_documents = []
+    new_hashes = set()
+
+    for doc in documents:
+        doc_hash = generate_hash(doc.page_content)
+
+        if doc_hash not in stored_hashes:
+            new_documents.append(doc)
+            new_hashes.add(doc_hash) 
+
+    if not new_documents:
+        print("No New Documents To add. ")
+        return
+
+
     if os.path.exists(vectordb_file_path):
         vectordb = FAISS.load_local(
             str(vectordb_file_path),
@@ -69,6 +92,13 @@ def create_vector_db():
         vectordb = FAISS.from_documents(documents, embeddings)
     
     vectordb.save_local(str(vectordb_file_path))
+
+    # Updated Metadata file
+    stored_hashes.update(new_hashes)
+    with open(metadata_path,"w") as f:
+        json.dump(list(stored_hashes),f)
+
+    print(f"Added {len(new_documents)} new documents.")
 
 
 def get_qa_chain():
