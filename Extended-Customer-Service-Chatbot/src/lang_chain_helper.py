@@ -37,9 +37,11 @@ data_path = base_dir/ "dataset" / "et.csv"
 # FAISS Index Path
 vectordb_file_path = base_dir/"faiss_index"
 
+# meta Data Path
+metadata_path = base_dir/ "metadata_store.json"
+
 
 ## Hashing Function
-
 def generate_hash(text):
     return hashlib.sha256(text.encode()).hexdigest()
 
