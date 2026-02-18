@@ -1,15 +1,17 @@
+# --------------------------------------------------------   Import's   -----------------------------------------------------------
 from langchain_community.vectorstores import FAISS
 from langchain_community.document_loaders.csv_loader import CSVLoader
 from langchain_community.embeddings import  HuggingFaceEmbeddings
-
 from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables import RunnablePassthrough
-
 from langchain_groq import ChatGroq
-
 import os
 from dotenv import load_dotenv
 from pathlib import Path
+import hashlib
+import json
+
+
 load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
 
 
@@ -32,6 +34,11 @@ data_path = base_dir/ "dataset" / "et.csv"
 
 # FAISS Index Path
 vectordb_file_path = base_dir/"faiss_index"
+
+
+## Hashing Function
+def generate_hash(text):
+    return None
 
 
 
