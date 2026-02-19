@@ -77,20 +77,20 @@ def create_vector_db():
             new_hashes.add(doc_hash) 
 
     if not new_documents:
-        current_timer = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        print("[{current_timer}] No New Documents To add.")
+        current_timer = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        print(f"[{current_timer}] No New Documents To add.")
+        return
+    
         
-
-
     if os.path.exists(vectordb_file_path):
         vectordb = FAISS.load_local(
             str(vectordb_file_path),
             embeddings,
             allow_dangerous_deserialization = True
         )
-        vectordb.add_documents(documents)
+        vectordb.add_documents(new_documents)
     else:
-        vectordb = FAISS.from_documents(documents, embeddings)
+        vectordb = FAISS.from_documents(new_documents, embeddings)
     
     vectordb.save_local(str(vectordb_file_path))
 
@@ -100,7 +100,7 @@ def create_vector_db():
         json.dump(list(stored_hashes),f)
 
     
-    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S") 
+    current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") 
     print(f"[{current_time}] Added {len(new_documents)} new Documents. ")
  
 
