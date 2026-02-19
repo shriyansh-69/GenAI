@@ -105,11 +105,13 @@ def create_vector_db():
  
 
 def get_qa_chain():
+
     vectordb = FAISS.load_local(
     vectordb_file_path,
     embeddings,
     allow_dangerous_deserialization=True
     )
+    
 
     retriever = vectordb.as_retriever(search_kwargs={"k": 4})
 
