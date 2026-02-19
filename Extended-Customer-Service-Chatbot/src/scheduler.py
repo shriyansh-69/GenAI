@@ -9,7 +9,7 @@ scheduler = BackgroundScheduler()
 
 def start_scheduler():
     if not scheduler.running:
-        scheduler.add_job(create_vector_db,"interval", minutes = 30)
+        scheduler.add_job(create_vector_db,"interval", hours = 1 )
         scheduler.start()
         print("Scheduler Started. Knowledge will update automatically. ")
     
