@@ -9,6 +9,7 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 import hashlib
+import datetime
 import json
 
 # -----------------------------------------------------------  API-Key   --------------------------------------------------------------------
@@ -77,8 +78,9 @@ def create_vector_db():
             new_hashes.add(doc_hash) 
 
     if not new_documents:
-        print("No New Documents To add. ")
-        return
+        current_timer = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        print("[{current_timer}] No New Documents To add.")
+        
 
 
     if os.path.exists(vectordb_file_path):
@@ -98,8 +100,10 @@ def create_vector_db():
     with open(metadata_path,"w") as f:
         json.dump(list(stored_hashes),f)
 
-    print(f"Added {len(new_documents)} new documents.")
-
+    
+    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S") 
+    print(f"[{current_time}] Added {len(new_documents)} new Documents. ")
+ 
 
 def get_qa_chain():
     vectordb = FAISS.load_local(
