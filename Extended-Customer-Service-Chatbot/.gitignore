@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 .venv/
 .env
+metadata_store.json
+faiss_index/
