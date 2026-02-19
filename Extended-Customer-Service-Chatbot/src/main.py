@@ -11,9 +11,7 @@ if "start_scheduler" not in st.session_state:
 st.set_page_config(page_title="Customer Service Chatbot", page_icon="🤖")
 st.title("Customer Service Chatbot 🤖")
 
-if st.button("Create Knowledge"):
-    create_vector_db()
-    st.success("Knowledge base created!")
+
 
 question = st.text_input("Ask a question:")
 
