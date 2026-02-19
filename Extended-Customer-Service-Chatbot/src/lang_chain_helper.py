@@ -62,7 +62,7 @@ def create_vector_db():
 
     # Load existing hashes 
     if metadata_path.exists():
-        with open("metadata_path","r") as f:
+        with open(metadata_path,"r") as f:
             stored_hashes = set(json.load(f))
     else:
         stored_hashes = set()
@@ -72,7 +72,6 @@ def create_vector_db():
 
     for doc in documents:
         doc_hash = generate_hash(doc.page_content)
-
         if doc_hash not in stored_hashes:
             new_documents.append(doc)
             new_hashes.add(doc_hash) 
