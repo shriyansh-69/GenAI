@@ -7,7 +7,7 @@ st.set_page_config(page_title="NullClass Service Chatbot", page_icon="🤖")
 if "start_scheduler" not in st.session_state:
     start_scheduler()
     st.session_state.scheduler_started = True
-
+ 
 
 st.title("NullClass Service Chatbot 🤖")
 
