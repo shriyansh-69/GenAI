@@ -26,11 +26,11 @@ if prompt := st.chat_input("Ask Your Question:- "):
     st.session_state.messages.append({"role":"user","content" : prompt})
 
     chain = get_qa_chain()
-    response = chain.invoke({"question" : prompt})
-    answer =  response["answer"]
+    response = chain.invoke(prompt)
+    answer =  response.content
 
     st.chat_message("assistant").write(answer)
-    st.session_state.messsages.append({"role":"assistant","content":answer})
+    st.session_state.messages.append({"role":"assistant","content":answer})
 
 
     
