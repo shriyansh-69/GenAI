@@ -4,9 +4,6 @@ from scheduler import start_scheduler
 
 st.set_page_config(page_title="NullClass Service Chatbot", page_icon="🤖")
 
-if "chat_history" not in st.session_state:
-    st.session_state.chat_history = []
-
 if "start_scheduler" not in st.session_state:
     start_scheduler()
     st.session_state.scheduler_started = True
@@ -14,11 +11,35 @@ if "start_scheduler" not in st.session_state:
 
 st.title("NullClass Service Chatbot 🤖")
 
-question = st.text_input("Ask a question:")
+# Intialize Chat History 
+if "messages" not in st.session_state:
+    st.session_state.messages = []
 
-if question.strip():
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.write(message["content"])
+
+
+if prompt := st.chat_input("Ask Your Question:- "):
+
+    st.chat_message("user").write(prompt)
+    st.session_state.messages.append({"role":"user","content" : prompt})
+
     chain = get_qa_chain()
-    response = chain.invoke(question)
+    response = chain.invoke({"question" : prompt})
+    answer =  response["answer"]
 
-    st.subheader("Answer")
-    st.write(response.content)
+    st.chat_message("assistant").write(answer)
+    st.session_state.messsages.append({"role":"assistant","content":answer})
+
+
+    
+
+
+   
+
+
+    
+
+
+
